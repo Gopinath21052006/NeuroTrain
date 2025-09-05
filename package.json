@@ -1,0 +1,17 @@
+{
+  "name": "neurotrain-desktop",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "scripts": {
+      "dev": "concurrently \"npm run dev --prefix frontend\" \"electron .\"",
+    "build": "npm run build --prefix frontend",
+    "start": "electron electron/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "NeuroTrain Desktop Application",
+  "devDependencies": {
+    "electron": "^37.2.5"
+  }
+}
