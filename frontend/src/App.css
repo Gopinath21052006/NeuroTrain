@@ -1,0 +1,473 @@
+/* Base Styles */
+:root {
+  --ai-color: #10a37f;
+  --user-color: #3b82f6;
+  --bg-light: #ffffff;
+  --bg-dark: #343541;
+  --text-light: #333;
+  --text-dark: #ececf1;
+  --border-light: #e5e7eb;
+  --border-dark: #40414f;
+}
+
+/* Layout */
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.dark header {
+  border-color: var(--border-dark);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-icon {
+  color: var(--ai-color);
+  font-size: 1.5rem;
+}
+
+/* Chat Container */
+.chat-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 transparent;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* Message Styles */
+.message {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.message.ai {
+  background-color: rgba(16, 163, 127, 0.1);
+}
+
+.dark .message.ai {
+  background-color: rgba(16, 163, 127, 0.2);
+}
+
+.message.user {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.dark .message.user {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+.message-avatar {
+  flex-shrink: 0;
+}
+
+.ai-avatar {
+  color: var(--ai-color);
+  font-size: 1.5rem;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--user-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.message-content {
+  flex: 1;
+}
+
+.message-timestamp {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 0.5rem;
+}
+
+/* Typing Indicator */
+.typing-indicator {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.5rem 0;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background-color: currentColor;
+  border-radius: 50%;
+  display: inline-block;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-5px); }
+}
+
+/* Input Area */
+.input-area {
+  padding: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.dark .input-area {
+  border-color: var(--border-dark);
+}
+
+.input-area form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-light);
+  outline: none;
+}
+
+.dark .input-area input {
+  background-color: var(--bg-dark);
+  border-color: var(--border-dark);
+  color: var(--text-dark);
+}
+
+.input-area button {
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  background-color: var(--ai-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.input-area button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* Voice Status Indicator */
+.voice-status {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-left: 1rem;
+  transition: all 0.3s;
+}
+
+.voice-status.speaking {
+  color: var(--ai-color);
+  opacity: 1;
+}
+
+/* Message Animations */
+@keyframes messageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message {
+  animation: messageIn 0.3s ease-out;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.mic-button.listening {
+  animation: pulse 1.5s infinite;
+}
+Speech UI Styles
+.mic-btn {
+  background: none;
+  border: none;
+  padding: 0.75rem;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.mic-btn.active {
+  color: #f00;
+  animation: pulse 1.5s infinite;
+}
+
+.speaking-indicator {
+  font-size: 0.8rem;
+  color: #10a37f;
+  margin-left: 0.5rem;
+}
+
+.message-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.retry-btn {
+  background: none;
+  border: none;
+  color: #f00;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.voice-selector {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 4px;
+  background: var(--bg-dark);
+  color: var(--text-dark);
+  border: 1px solid var(--border-dark);
+}
+
+/* Speaking state animation */
+.message.speaking {
+  position: relative;
+  animation: pulse-highlight 2s infinite;
+}
+
+@keyframes pulse-highlight {
+  0% { background-color: rgba(16, 163, 127, 0.05); }
+  50% { background-color: rgba(16, 163, 127, 0.15); }
+  100% { background-color: rgba(16, 163, 127, 0.05); }
+}
+
+/* Stop button styling */
+.stop-speech-button {
+  background: rgba(255, 59, 48, 0.1);
+  border: 1px solid rgba(255, 59, 48, 0.3);
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: #ff3b30;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.stop-speech-button:hover {
+  background: rgba(255, 59, 48, 0.2);
+}
+
+/* Dark mode adjustments */
+.dark .stop-speech-button {
+  color: #ff6258;
+  }
+.dark .message.speaking {
+  animation: pulse-highlight-dark 2s infinite;
+  }
+  
+@keyframes pulse-highlight-dark {
+  0% { background-color: rgba(16, 163, 127, 0.1); }
+  50% { background-color: rgba(16, 163, 127, 0.3); }
+  100% { background-color: rgba(16, 163, 127, 0.1); }
+}
+
+/* Analytics Toggle Button */
+.analytics-toggle {
+  background: none;
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  
+.analytics-toggle:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.analytics-toggle.active {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+  }
+
+/* Analytics Panel */
+.analytics-panel {
+  margin-bottom: 20px;
+  animation: slideDown 0.3s ease;
+  }
+  
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Controls Layout */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* Wake Word Status */
+.wake-word-status {
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.status-indicator {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.status-indicator.listening {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-indicator.awake {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.dark .status-indicator.listening {
+  background-color: #451a03;
+  color: #fef3c7;
+}
+
+.dark .status-indicator.awake {
+  background-color: #064e3b;
+  color: #d1fae5;
+}
+
+/* Continuous Listening Button */
+.continuous-button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.continuous-button.active {
+  background-color: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+.continuous-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.dark .continuous-button {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: white;
+}
+.command-indicator {
+  font-size: 0.8em;
+  color: #4CAF50;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.message.command .message-content {
+  border-left: 3px solid #4CAF50;
+}
+.command-indicator {
+  font-size: 0.8em;
+  color: #4CAF50;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.message.command .message-content {
+  border-left: 3px solid #4CAF50;
+  padding-left: 10px;
+}
+
+/* Optional: Add a little icon before command messages */
+.command-indicator::before {
+  content: "⚡";
+  font-size: 1.2em;
+}
+.user-id-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  padding: 8px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.new-user-btn {
+  padding: 4px 8px;
+  font-size: 11px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-primary);
+  cursor: pointer;
+}
+
+.new-user-btn:hover {
+  background: var(--bg-tertiary);
+}

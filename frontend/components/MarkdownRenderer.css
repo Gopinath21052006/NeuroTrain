@@ -1,0 +1,13 @@
+/* MarkdownRenderer.css */
+.message-text-container {
+  line-height: 1.6;
+  /* white-space: pre-wrap; */
+  width: 100%;
+}
+
+.message-text-container .text-bold {
+  font-weight: 600;
+  color: var(--text-bold);
+}
+
+/* ... (keep all other styles the same, just change selectors to start with .message-text-container) ... */

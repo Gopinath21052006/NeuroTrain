@@ -1,0 +1,192 @@
+.voice-analytics {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.analytics-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.analytics-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.header-icon {
+  font-size: 1.4rem;
+  color: var(--accent-color);
+}
+
+.last-update {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: var(--success-light);
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.metric-card {
+  background: var(--bg-secondary);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid var(--border-light);
+}
+
+.metric-card.success {
+  background: var(--success-light);
+  border-color: var(--success);
+}
+
+.metric-icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--accent-color);
+}
+
+.metric-card.success .metric-icon {
+  color: var(--success);
+}
+
+.metric-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Popular Commands */
+.popular-commands {
+  margin-bottom: 20px;
+}
+
+.popular-commands h4 {
+  margin: 0 0 15px 0;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.commands-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.command-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+}
+
+.command-name {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+.command-count {
+  background: var(--accent-color);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Last Command */
+.last-command {
+  padding-top: 15px;
+  border-top: 1px solid var(--border-color);
+}
+
+.last-command h4 {
+  margin: 0 0 10px 0;
+  color: var(--text-primary);
+}
+
+.last-command-details {
+  background: var(--bg-secondary);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+}
+
+.last-command-details p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.last-command-details strong {
+  color: var(--text-primary);
+}
+
+/* Loading and Error States */
+.voice-analytics.loading,
+.voice-analytics.error {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--border-light);
+  border-top: 3px solid var(--accent-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-icon {
+  font-size: 2rem;
+  color: var(--error);
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .voice-analytics {
+    margin: 10px;
+    padding: 15px;
+  }
+}
