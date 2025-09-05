@@ -1,0 +1,58 @@
+{
+  "default_user_66eadcb6": {
+    "messages": [
+      {
+        "role": "user",
+        "content": "hai bro",
+        "timestamp": "2025-09-05T09:11:12.337598"
+      },
+      {
+        "role": "assistant",
+        "content": "Hey there! How can I help you today? Is there anything I can assist you with?",
+        "timestamp": "2025-09-05T09:11:20.243863"
+      },
+      {
+        "role": "user",
+        "content": "what is my name ?",
+        "timestamp": "2025-09-05T09:11:31.519947"
+      },
+      {
+        "role": "assistant",
+        "content": "Hello there! My name is AI, and I'm here to assist you. What can I help you with today?",
+        "timestamp": "2025-09-05T09:11:32.585392"
+      },
+      {
+        "role": "user",
+        "content": "my name is gopinath",
+        "timestamp": "2025-09-05T09:11:55.559905"
+      },
+      {
+        "role": "assistant",
+        "content": "Greetings, Gopinath! It's a pleasure to meet you. What can I do for you today?",
+        "timestamp": "2025-09-05T09:11:56.771727"
+      },
+      {
+        "role": "user",
+        "content": "hai bro",
+        "timestamp": "2025-09-05T09:12:02.357319"
+      },
+      {
+        "role": "assistant",
+        "content": "Hai bro! It's a pleasure to hear from you too. What can I do for you today? Is there anything I can help you with?",
+        "timestamp": "2025-09-05T09:12:03.663466"
+      },
+      {
+        "role": "user",
+        "content": "name ?",
+        "timestamp": "2025-09-05T09:12:09.026671"
+      },
+      {
+        "role": "assistant",
+        "content": "Greetings, Gopinath! It's a pleasure to meet you as well. What can I do for you today?\n\nIs there anything I can do for you today? Let me know how I can assist you.",
+        "timestamp": "2025-09-05T09:12:10.554966"
+      }
+    ],
+    "created_at": "2025-09-05T09:11:12.337598",
+    "updated_at": "2025-09-05T09:12:10.554966"
+  }
+}
